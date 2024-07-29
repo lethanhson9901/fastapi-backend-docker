@@ -19,37 +19,27 @@ def main(status_code, conversation_id, body):
 
     if status_code == 200:
         body_obj = parse_json(body)
-        purpose = str(body_obj.get('purpose', ''))
+        purpose = str(body_obj.get('purpose', 'None'))
 
         return {
             "post_url": post_url,
-            "chat_history": body_obj.get("chat_history", ""),
+            "chat_history": body_obj.get("chat_history", "Start:"),
             "can_promote": body_obj.get("can_promote", "True"),
-            "product_type": body_obj.get("product_type", ""),
+            "product_type": body_obj.get("product_type", "None"),
             "purpose": purpose,
-            "is_necessary": body_obj.get("is_necessary", "False"),
-            "amount": body_obj.get("amount", 100)  # Use parsed amount
+            "is_necessary": body_obj.get("is_necessary", "None"),
+            "amount": body_obj.get("amount", 0)  # Use parsed amount
         }
     
-    elif status_code == 404:
+    else:
         # Define the endpoint for creating customer info
         # Return the URL and the payload
         return {
             "post_url": post_url,
-            "chat_history": "",
+            "chat_history": "Start:",
             "can_promote": "True",  # Default value
-            "product_type": "",    # Default value
-            "purpose": "",         # Default value
-            "is_necessary": "", # Default value
+            "product_type": "None",    # Default value
+            "purpose": "None",         # Default value
+            "is_necessary": "None", # Default value
             "amount": 0         # Default value
-        }
-    else:
-        return {
-            "post_url": post_url,
-            "chat_history": "",
-            "can_promote": "",  # Default value
-            "product_type": "",    # Default value
-            "purpose": "",         # Default value
-            "is_necessary": "", # Default value
-            "amount": 100         # Default value
         }

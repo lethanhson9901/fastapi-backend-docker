@@ -14,6 +14,7 @@ customer_collection = database.get_collection("customer_info")
 class CustomerInfoModel(BaseModel):
     conversation_id: str
     chat_history: str
+    summary: str
     phone_number: str
     can_promote: str
     product_type: str
