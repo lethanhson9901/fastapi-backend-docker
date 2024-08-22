@@ -1,4 +1,4 @@
-BASE_URL = "http://ec2-54-153-219-129.ap-southeast-2.compute.amazonaws.com"
+BASE_URL = "http://ec2-3-27-212-239.ap-southeast-2.compute.amazonaws.com"
 
 def parse_json(body):
     # Basic JSON parser for this specific example
